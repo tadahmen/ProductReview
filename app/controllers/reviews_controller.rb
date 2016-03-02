@@ -2,7 +2,8 @@ class ReviewsController < ApplicationController
 
   def index
     @rating = 0
-    each Review.all do |r|
+    @reviews = Review.all
+    @reviews.each do |r|
       @rating = @rating + r.rating
     end
 
@@ -13,9 +14,8 @@ class ReviewsController < ApplicationController
       },
       reviews:
         Review.order(:name)
-        average: @rating
+      # average: @rating
     }
-    
   end
 
   def show
