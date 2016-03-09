@@ -24,17 +24,13 @@ class ReviewsController < ApplicationController
     review = Review.new(review_params)
     review.product = @product
 
-    respond_to do |format|
-      if review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        render json: { review: review }
-      else
-        format.html { render :new }
-        render json: {
-          message: "could not create new Review",
-          errors: review.errors
-        }, status: :unprocessible_entity
-      end
+    if review.save
+      render json: { review: review }
+    else
+      render json: {
+        message: "Could not create new Review",
+        errors: review.errors
+      }, status: :unprocessible_entity
     end
   end
 
