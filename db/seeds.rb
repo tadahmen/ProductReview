@@ -8,7 +8,8 @@
 Product.destroy_all
 Product.create([
   { name: "radio1", description: "black and very loud", shop:"HEMA" },
-  { name: "radio2", description: "yellow and great sound", shop:"OhRadio"}
+  { name: "radio2", description: "yellow and great sound", shop:"OhRadio"},
+  { name: "radio3", description: "silver sound", shop:"Cheap&Good"}
 ])
 
 #Review.destroy_all
