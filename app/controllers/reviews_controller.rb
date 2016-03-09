@@ -1,13 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_product
+  skip_before_action :verify_authenticity_token
 
   def index
-    # @rating = 0
-    # @reviews = Review.all
-    # @reviews.each do |r|
-    #   @rating = @rating + r.rating
-    # end
-
     render json: {
       meta: {
         count: @product.reviews.count,
@@ -22,9 +17,9 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
-    review.product = @product
+    # review.product = @product
 
-    if review.save
+    if review = review.save
       render json: { review: review }
     else
       render json: {

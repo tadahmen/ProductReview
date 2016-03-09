@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   # # POST /products
   # # POST /products.json
   def create
-    if product = Product.create(product_params)   #?? is het niet 'if product ==' etc.
+    if product = Product.create(product_params)   #?? waarom is het niet 'if product ==' etc.
       render json: { product: product}
     else
       render json: {
