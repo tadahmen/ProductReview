@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160301224155) do
     t.integer  "product_id"
     t.string   "name"
     t.integer  "rating"
-    t.text     "review"
+    t.text     "reviewText"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
