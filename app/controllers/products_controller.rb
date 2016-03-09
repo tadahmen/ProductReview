@@ -35,16 +35,13 @@ class ProductsController < ApplicationController
   # # POST /products
   # # POST /products.json
   def create
-    @product = Product.new(product_params)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if product = Product.create(product_params)   #?? waarom is het niet 'if product ==' etc.
+      render json: { product: product}
+    else
+      render json: {
+        message: "Unable to create new product",
+        errors: product.errors,
+      }, status: :unprocessible_entity
     end
   end
   #
