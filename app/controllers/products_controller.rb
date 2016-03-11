@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.json
+  skip_before_action :verify_authenticity_token
+
   def index
     render json: {
       meta: {
