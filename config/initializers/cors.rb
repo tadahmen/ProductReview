@@ -1,7 +1,7 @@
 class ProductReview::Application
    config.middleware.insert_before 0,  "Rack::Cors", debug: Rails.env.development?, logger: (-> { Rails.logger }) do
      allow do
-       origins 'localhost:3000', '127.0.0.1:3000'#, 'bookie-duck-12856.bitballoon.com'
+       origins 'http://tutor-isabel-44515.bitballoon.com', '127.0.0.1:3000'   #localhost:3000 
          /\Ahttp:\/\/192\.168\.0\.\d{1,3}(:\d+)?\z/
 
        resource '/cors',
